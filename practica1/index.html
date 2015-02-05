@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Diagnostico</title>
+<style>
+
+#popup {
+	position:absolute;
+	left:50%;
+	top:50%;
+}
+
+table {
+	border-style: solid;
+	border-color: #000;
+	width: 200px;
+	height: 200px;
+}
+
+.pull-right {
+	float: right;
+}
+
+.button {
+	cursor: pointer;
+}
+
+.clear {
+	clear: both;
+}
+
+</style>
+<script>
+	only_once = 0;
+
+	function create_popup() {
+		if (only_once == 0)
+		{
+			var popup = document.getElementById('popup')
+
+			var tbl = document.createElement('table')
+			var head = document.createElement('tr')
+			var cont = document.createElement('tr')
+			var title = document.createElement('span')
+			var close = document.createElement('span')
+
+			title.innerHTML = "Titulo"
+			close.innerHTML = "[X]"
+			close.className = "pull-right button"
+			close.onclick = close_popup
+			cont.innerHTML = "Contenido dinamico"
+
+			head.appendChild(title)
+			head.appendChild(close)
+			tbl.appendChild(head)
+			tbl.appendChild(cont)
+			popup.appendChild(tbl)
+
+			only_once = 1
+		}
+	}
+
+	function close_popup() {
+		var popup = document.getElementById('popup')
+		popup.innerHTML = ""
+		only_once = 0
+	}
+</script>
+
+</head>
+
+<body>
+	<div id="content">
+		<a href="#" id="button" onclick="create_popup()">Click Me</a>
+	</div>
+	<div id="popup">
+	</div>
+</body>
+
+</html>
