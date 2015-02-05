@@ -1,0 +1,18 @@
+.container {
+	width: 800px;
+	height: 300px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -150px 0 0 -400px;
+}
+
+.timer {
+	font-size: 100px;
+	text-align: center;
+}
+
+.buttons {
+	margin: auto;
+	width: 200px;
+}
